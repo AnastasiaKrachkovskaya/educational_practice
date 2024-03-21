@@ -1,5 +1,5 @@
 #include "FirstExcerciseWindow.h"
-#include "ui_FirstExcersiceWindow.h"
+#include "ui_FirstExcerciseWindow.h"
 #include "Actions.h"
 
 FirstExcerciseWindow::FirstExcerciseWindow(QWidget *parent)

@@ -2,6 +2,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+
 CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -12,12 +13,12 @@ INCLUDEPATH += \
     data \
     models \
     domain \
-    presentation\firstWindow \
+    presentation/firstWindow \
 
 SOURCES += \
     main.cpp \
     data/ActionsRepository.cpp \
-    presentation/firstWindow/FirstExcersiceWindow.cpp
+    presentation/firstWindow/FirstExcerciseWindow.cpp
 
 HEADERS += \
     models/Actions.h \
@@ -25,7 +26,7 @@ HEADERS += \
     presentation/firstWindow/FirstExcerciseWindow.h
 
 FORMS += \
-    presentation/firstWindow/FirstExcersiceWindow.ui
+    presentation/firstWindow/FirstExcerciseWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
