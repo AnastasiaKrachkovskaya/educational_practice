@@ -9,16 +9,19 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    firstWindow/FirstExcersiceWindow.cpp \
-    main.cpp
+    main.cpp \
+    presentation/firstWindow/FirstExcersiceWindow.cpp
 
 HEADERS += \
-    firstWindow/FirstExcerciseWindow.h
+    presentation/firstWindow/FirstExcerciseWindow.h
 
 FORMS += \
-    firstWindow/FirstExcersiceWindow.ui
+    presentation/firstWindow/FirstExcersiceWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    presentation/firstWindow/README.md
