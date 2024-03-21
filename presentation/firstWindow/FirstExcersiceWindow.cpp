@@ -1,5 +1,6 @@
 #include "FirstExcerciseWindow.h"
 #include "ui_FirstExcersiceWindow.h"
+#include "Actions.h"
 
 FirstExcerciseWindow::FirstExcerciseWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -14,7 +15,5 @@ FirstExcerciseWindow::~FirstExcerciseWindow()
 }
 
 void FirstExcerciseWindow::on_id_push_btn_clicked() {
-    while (true) {
-
-    }
+    PressedAction* a = new PressedAction("12312");
 }
