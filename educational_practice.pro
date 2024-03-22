@@ -10,29 +10,30 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += \
-    data \
-    models \
-    domain \
-    presentation/appState \
-    presentation/excerciseWindowState \
-    presentation/firstWindow \
+    main/data \
+    main/models \
+    main/domain \
+    main/presentation/appState \
+    main/presentation/excerciseWindowState \
+    main/presentation/firstWindow \
 
 SOURCES += \
-    main.cpp \
-    data/ActionsRepository.cpp \
-    presentation/appState/AppStateStore.cpp \
-    presentation/excerciseWindowState/ExcerciseWindowState.cpp \
-    presentation/firstWindow/FirstExcerciseWindow.cpp \
+    main/main.cpp \
+    main/data/ActionsRepository.cpp \
+    main/presentation/appState/AppStateStore.cpp \
+    main/presentation/excerciseWindowState/ExcerciseWindowStateStore.cpp \
+    main/presentation/firstWindow/FirstExcerciseWindow.cpp \
 
 HEADERS += \
-    models/Actions.h \
-    data/ActionsRepository.h \
-    presentation/appState/AppStateStore.h \
-    presentation/excerciseWindowState/ExcerciseWindowState.h \
-    presentation/firstWindow/FirstExcerciseWindow.h \
+    main/models/Actions.h \
+    main/data/ActionsRepository.h \
+    main/presentation/appState/AppStateStore.h \
+    main/presentation/excerciseWindowState/ExcerciseWindowState.h \
+    main/presentation/excerciseWindowState/ExcerciseWindowStateStore.h \
+    main/presentation/firstWindow/FirstExcerciseWindow.h \
 
 FORMS += \
-    presentation/firstWindow/FirstExcerciseWindow.ui
+    main/presentation/firstWindow/FirstExcerciseWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
