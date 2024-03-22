@@ -13,17 +13,23 @@ INCLUDEPATH += \
     data \
     models \
     domain \
+    presentation/appState \
+    presentation/excerciseWindowState \
     presentation/firstWindow \
 
 SOURCES += \
     main.cpp \
     data/ActionsRepository.cpp \
-    presentation/firstWindow/FirstExcerciseWindow.cpp
+    presentation/appState/AppStateStore.cpp \
+    presentation/excerciseWindowState/ExcerciseWindowState.cpp \
+    presentation/firstWindow/FirstExcerciseWindow.cpp \
 
 HEADERS += \
     models/Actions.h \
     data/ActionsRepository.h \
-    presentation/firstWindow/FirstExcerciseWindow.h
+    presentation/appState/AppStateStore.h \
+    presentation/excerciseWindowState/ExcerciseWindowState.h \
+    presentation/firstWindow/FirstExcerciseWindow.h \
 
 FORMS += \
     presentation/firstWindow/FirstExcerciseWindow.ui
