@@ -41,7 +41,7 @@ public:
     }
     ~TrainingScreenDestination() {};
 
-    bool getIsOpenInProcessTrainingMode() {
+    bool getIsOpenInProcessTrainingMode() const {
         return this->isOpenInProcessTrainingMode;
     }
 

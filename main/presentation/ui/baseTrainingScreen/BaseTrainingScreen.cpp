@@ -2,15 +2,32 @@
 
 BaseTrainingScreen::BaseTrainingScreen(bool isOpenInProcessTrainingMode,
                                        QWidget* parent): QWidget(parent) {
-    QVBoxLayout* layout = new QVBoxLayout(this);
-    this->setLayout(layout);
+    this->isOpenInProcessTrainingMode = isOpenInProcessTrainingMode;
+}
 
-    QMenuBar* menu = new QMenuBar();
-    QMenu* fileMenu = new QMenu("FILLE");
-    menu->addMenu(fileMenu);
-    fileMenu->addAction("Test1");
-    fileMenu->addAction("ts1");
-    this->layout()->setMenuBar(menu);
+void BaseTrainingScreen::setupUi() {
+    this->menuBar = new QMenuBar();
+    this->menuItem = new QMenu("Меню");
+
+    if(this->isOpenInProcessTrainingMode) {
+        setupProcessTrainingUi();
+    } else {
+        setupReplayTrainingUi();
+    }
+
+    this->menuBar->addMenu(menuItem);
+    this->layout()->setMenuBar(this->menuBar);
+}
+
+void BaseTrainingScreen::setupProcessTrainingUi()
+{
+    this->menuItem->addAction(startTrainingAction);
+    this->menuItem->addAction(endTrainingAction);
+}
+
+void BaseTrainingScreen::setupReplayTrainingUi()
+{
+    this->menuItem->addAction(checkTrainingAction);
 }
 
 BaseTrainingScreen::~BaseTrainingScreen() { }

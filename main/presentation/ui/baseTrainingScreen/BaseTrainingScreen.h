@@ -11,7 +11,17 @@ class BaseTrainingScreen : public QWidget {
 public:
     explicit BaseTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent = nullptr);
     ~BaseTrainingScreen();
+protected:
+    void setupUi();
 private:
+    QMenuBar* menuBar;
+    QMenu* menuItem;
+    QAction* startTrainingAction = new QAction("Начать тренировку");
+    QAction* endTrainingAction = new QAction("Завершить тренировку");
+    QAction* checkTrainingAction = new QAction("Проверить результат тренировки");
+
+    bool isOpenInProcessTrainingMode;
+
     void setupProcessTrainingUi();
     void setupReplayTrainingUi();
 };

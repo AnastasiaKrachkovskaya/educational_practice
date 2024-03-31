@@ -5,7 +5,7 @@
 #include "main/presentation/ui/baseTrainingScreen/BaseTrainingScreen.h"
 #include "ui_FirstTrainingScreen.h"
 
-class FirstTrainingScreen : public BaseTrainingScreen, private Ui::FirstTrainingScreen {
+class FirstTrainingScreen : public BaseTrainingScreen, public Ui::FirstTrainingScreen {
     Q_OBJECT
 
 public:

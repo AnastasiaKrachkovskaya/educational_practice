@@ -12,14 +12,16 @@ void AppWindow::navigateTo(const BaseDestination& destination) {
     destination.handleWith(this);
 }
 
-void AppWindow::handleInitialScreenDestination(const InitialScreenDestination &dest)
+void AppWindow::handleInitialScreenDestination(const InitialScreenDestination& dest)
 {
     InitialScreen* initialScreen = new InitialScreen(this);
     setCentralWidget(initialScreen);
 }
 
-void AppWindow::handleTrainingScreenDestination(const TrainingScreenDestination &dest)
+void AppWindow::handleTrainingScreenDestination(const TrainingScreenDestination& dest)
 {
-    FirstTrainingScreen* firstTrainingScreen = new FirstTrainingScreen(this);
+    FirstTrainingScreen* firstTrainingScreen = new FirstTrainingScreen(
+        dest.getIsOpenInProcessTrainingMode(), this
+        );
     this->setCentralWidget(firstTrainingScreen);
 }
