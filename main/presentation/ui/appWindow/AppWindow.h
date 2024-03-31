@@ -7,6 +7,7 @@
 #include "main/presentation/ui/initialScreen/InitialScreen.h"
 #include "main/presentation/ui/firstTraining/FirstTrainingScreen.h"
 #include "main/presentation/ui/secondTraining/SecondTrainingScreen.h"
+#include "main/presentation/ui/thirdTraining/ThirdTrainingScreen.h"
 
 
 QT_BEGIN_NAMESPACE

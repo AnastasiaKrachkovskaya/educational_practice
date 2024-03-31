@@ -1,15 +1,15 @@
-#include "SecondTrainingScreen.h"
-#include "ui_SecondTrainingScreen.h"
+#include "ThirdTrainingScreen.h"
+#include "ui_ThirdTrainingScreen.h"
 
-SecondTrainingScreen::SecondTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent)
+ThirdTrainingScreen::ThirdTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent)
     : BaseTrainingScreen(isOpenInProcessTrainingMode, parent)
-    , ui(new Ui::SecondTrainingScreen)
+    , ui(new Ui::ThirdTrainingScreen)
 {
     ui->setupUi(this);
     BaseTrainingScreen::setupUi();
 }
 
-SecondTrainingScreen::~SecondTrainingScreen()
+ThirdTrainingScreen::~ThirdTrainingScreen()
 {
     delete ui;
 }

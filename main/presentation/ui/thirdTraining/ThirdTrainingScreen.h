@@ -1,18 +1,18 @@
-#ifndef SECONDTRAININGSCREEN_H
-#define SECONDTRAININGSCREEN_H
+#ifndef THIRDTRAININGSCREEN_H
+#define THIRDTRAININGSCREEN_H
 
 #include <QWidget>
 #include "main/presentation/ui/baseTrainingScreen/BaseTrainingScreen.h"
-#include "ui_SecondTrainingScreen.h"
+#include "ui_ThirdTrainingScreen.h"
 
-class SecondTrainingScreen : public BaseTrainingScreen, public Ui::SecondTrainingScreen {
+class ThirdTrainingScreen : public BaseTrainingScreen, public Ui::ThirdTrainingScreen {
     Q_OBJECT
 
 public:
-    explicit SecondTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent = nullptr);
-    ~SecondTrainingScreen();
+    explicit ThirdTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent = nullptr);
+    ~ThirdTrainingScreen();
 private:
-    Ui::SecondTrainingScreen *ui;
+    Ui::ThirdTrainingScreen *ui;
 };
 
-#endif // SECONDTRAININGSCREEN_H
+#endif // THIRDTRAININGSCREEN_H

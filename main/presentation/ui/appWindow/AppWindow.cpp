@@ -31,7 +31,7 @@ void AppWindow::handleTrainingScreenDestination(const TrainingScreenDestination&
             trainingScreenWidget = new SecondTrainingScreen(isOpenInProcessTrainingMode, this);
             break;
         case TrainingAppNumber::THIRD:
-            trainingScreenWidget = new FirstTrainingScreen(isOpenInProcessTrainingMode, this);
+            trainingScreenWidget = new ThirdTrainingScreen(isOpenInProcessTrainingMode, this);
             break;
     }
 

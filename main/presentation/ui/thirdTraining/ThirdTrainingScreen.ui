@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SecondTrainingScreen</class>
- <widget class="QWidget" name="SecondTrainingScreen">
+ <class>ThirdTrainingScreen</class>
+ <widget class="QWidget" name="ThirdTrainingScreen">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>581</width>
-    <height>480</height>
+    <width>590</width>
+    <height>493</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,14 +24,55 @@
     <layout class="QHBoxLayout" name="horizontalLayout"/>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_4">
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
      <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Учить физику</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="text">
+        <string>Любить физику</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Списывать физику</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>Физика - не моё</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
       <number>0</number>
      </property>
      <item>
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Переведите числа из десятичной системы счисления в двоичную:</string>
+        <string>Напишите символы, соответствующие величинам:</string>
        </property>
       </widget>
      </item>
@@ -45,37 +86,99 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>125</width>
-         <height>170</height>
+         <width>210</width>
+         <height>117</height>
         </size>
+       </property>
+       <property name="rowCount">
+        <number>3</number>
        </property>
        <row>
         <property name="text">
-         <string>10</string>
+         <string>Сила тока</string>
         </property>
        </row>
        <row>
         <property name="text">
-         <string>11</string>
+         <string>Напряжение</string>
         </property>
        </row>
        <row>
         <property name="text">
-         <string>2</string>
+         <string>Сопротивление</string>
         </property>
        </row>
-       <row>
-        <property name="text">
-         <string>15</string>
-        </property>
-       </row>
-       <row/>
        <column>
         <property name="text">
-         <string>Перевод</string>
+         <string>Символ</string>
         </property>
        </column>
       </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <property name="topMargin">
+      <number>20</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Физика - наука о </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
@@ -106,7 +209,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Указатель - это</string>
+        <string>Формула силы тяжести: </string>
        </property>
       </widget>
      </item>
@@ -121,28 +224,28 @@
        <item>
         <widget class="QRadioButton" name="radioButton">
          <property name="text">
-          <string>переменная, в которой хранится адрес памяти объекта.</string>
+          <string>F = mg</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="radioButton_2">
          <property name="text">
-          <string>тип данных.</string>
+          <string>P = mg</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="radioButton_3">
          <property name="text">
-          <string>переменная, в которой хранится объект.</string>
+          <string>A = Fs</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="radioButton_4">
          <property name="text">
-          <string>нет правильного ответа.</string>
+          <string>M = Fl</string>
          </property>
         </widget>
        </item>
@@ -164,29 +267,6 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>С++ - это язык, который</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>400</width>
-       <height>16777215</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <property name="topMargin">
       <number>0</number>
@@ -203,7 +283,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Тип данных для целых чисел:</string>
+        <string>Единица измерения массы:</string>
        </property>
       </widget>
      </item>
@@ -211,22 +291,22 @@
       <widget class="QComboBox" name="comboBox">
        <item>
         <property name="text">
-         <string>char</string>
+         <string>кг</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>int</string>
+         <string>г</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>float</string>
+         <string>мг</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>double</string>
+         <string>т</string>
         </property>
        </item>
       </widget>
@@ -245,33 +325,6 @@
       </spacer>
      </item>
     </layout>
-   </item>
-   <item>
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="text">
-      <string>Я программист</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>Я разработчик</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>
