@@ -1,39 +1,24 @@
-QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-
 CONFIG += c++17
 
-# You can make your code fail to compile if it uses deprecated APIs.
-# In order to do so, uncomment the following line.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+# Переменная окружения - номер тренажера, для которого сконфигурирован проект
+# при изменении значения выполнять rebuild проекта (иначе не подтянется актуальное значение)
+TRAINING_APPLICATION_NUMBER=1
 
-INCLUDEPATH += \
-    main/data \
-    main/models \
-    main/domain \
-    main/presentation/appState \
-    main/presentation/excerciseWindowState \
-    main/presentation/firstWindow \
+INCLUDEPATH += $$files("*/", true)
 
-SOURCES += \
-    main/main.cpp \
-    main/data/ActionsRepository.cpp \
-    main/presentation/appState/AppStateStore.cpp \
-    main/presentation/excerciseWindowState/ExcerciseWindowStateStore.cpp \
-    main/presentation/firstWindow/FirstExcerciseWindow.cpp \
+SOURCES += $$files("*.cpp", true)
 
-HEADERS += \
-    main/models/Actions.h \
-    main/data/ActionsRepository.h \
-    main/presentation/appState/AppStateStore.h \
-    main/presentation/excerciseWindowState/ExcerciseWindowState.h \
-    main/presentation/excerciseWindowState/ExcerciseWindowStateStore.h \
-    main/presentation/firstWindow/FirstExcerciseWindow.h \
+HEADERS += $$files("*.h", true)
 
-FORMS += \
-    main/presentation/firstWindow/FirstExcerciseWindow.ui
+FORMS += $$files("*.ui", true)
+
+DEFINES += TRAINING_APPLICATION_NUMBER=$$TRAINING_APPLICATION_NUMBER
+
+TARGET = TrainingApplication-$$TRAINING_APPLICATION_NUMBER
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

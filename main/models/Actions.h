@@ -1,5 +1,5 @@
-#ifndef ACTIONS
-#define ACTIONS
+#ifndef ACTIONS_H
+#define ACTIONS_H
 
 #include <string>
 
