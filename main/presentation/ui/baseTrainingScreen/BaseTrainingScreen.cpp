@@ -22,6 +22,7 @@ void BaseTrainingScreen::setupUi() {
 void BaseTrainingScreen::setupProcessTrainingUi()
 {
     this->menuItem->addAction(startTrainingAction);
+    endTrainingAction->setEnabled(false);
     this->menuItem->addAction(endTrainingAction);
 }
 
