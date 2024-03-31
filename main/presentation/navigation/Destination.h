@@ -45,6 +45,10 @@ public:
         return this->isOpenInProcessTrainingMode;
     }
 
+    TrainingAppNumber getTrainingAppNumber() const {
+        return this->trainingAppNumber;
+    }
+
     void handleWith(DestinationHandler* handler) const override {
         handler->handleTrainingScreenDestination(*this);
     }

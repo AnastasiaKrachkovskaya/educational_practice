@@ -6,6 +6,8 @@
 #include "main/presentation/navigation/Destination.h"
 #include "main/presentation/ui/initialScreen/InitialScreen.h"
 #include "main/presentation/ui/firstTraining/FirstTrainingScreen.h"
+#include "main/presentation/ui/secondTraining/SecondTrainingScreen.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

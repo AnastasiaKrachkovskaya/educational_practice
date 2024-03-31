@@ -20,8 +20,20 @@ void AppWindow::handleInitialScreenDestination(const InitialScreenDestination& d
 
 void AppWindow::handleTrainingScreenDestination(const TrainingScreenDestination& dest)
 {
-    FirstTrainingScreen* firstTrainingScreen = new FirstTrainingScreen(
-        dest.getIsOpenInProcessTrainingMode(), this
-        );
-    this->setCentralWidget(firstTrainingScreen);
+    QWidget* trainingScreenWidget = nullptr;
+    bool isOpenInProcessTrainingMode = dest.getIsOpenInProcessTrainingMode();
+
+    switch(dest.getTrainingAppNumber()) {
+        case TrainingAppNumber::FIRST:
+            trainingScreenWidget = new FirstTrainingScreen(isOpenInProcessTrainingMode, this);
+            break;
+        case TrainingAppNumber::SECOND:
+            trainingScreenWidget = new SecondTrainingScreen(isOpenInProcessTrainingMode, this);
+            break;
+        case TrainingAppNumber::THIRD:
+            trainingScreenWidget = new FirstTrainingScreen(isOpenInProcessTrainingMode, this);
+            break;
+    }
+
+    this->setCentralWidget(trainingScreenWidget);
 }
