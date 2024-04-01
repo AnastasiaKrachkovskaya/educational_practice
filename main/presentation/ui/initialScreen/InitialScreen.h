@@ -10,12 +10,6 @@
  * \brief Начальное окно с выбором режима
  */
 
-QT_BEGIN_NAMESPACE
-namespace Ui {
-class AppWindow;
-}
-QT_END_NAMESPACE
-
 class InitialScreen: public QWidget, private Ui::InitialScreen {
     Q_OBJECT
 private:

@@ -3,6 +3,7 @@
 
 #include "ProcessTrainingViewPresenter.h"
 #include "ReplayTrainingViewPresenter.h"
+#include <QString>
 
 class ExcerciseView: public ProcessTrainingView,
                             public ReplayTrainingView {
@@ -23,6 +24,17 @@ public:
     using ProcessTrainingViewPresenter::onAction;
     using ReplayTrainingViewPresenter::startTrainingReplay;
     using ReplayTrainingViewPresenter::setReplaySpeedFactor;
+
+    /*!
+     * \brief Запоминаем введеную фамилию
+     */
+    void setLastName(QString lastName)
+    {
+        this->lastName = lastName;
+    }
+
+private:
+    QString lastName;
 };
 
 #endif // ExcerciseViewPresenter_H

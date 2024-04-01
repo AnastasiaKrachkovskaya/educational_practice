@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QMenuBar>
+#include "main/presentation/presenter/ExcerciseViewPresenter.h"
 
 /*!
  * \brief Визуальная часть меню
@@ -25,9 +26,12 @@ private:
     QAction* checkTrainingAction = new QAction("Проверить результат тренировки");
 
     bool isOpenInProcessTrainingMode;
+    ExcerciseViewPresenter* presenter;
 
     void setupProcessTrainingUi();
     void setupReplayTrainingUi();
+private slots:
+    void onStartTrainingActionTriggered();
 };
 
 
