@@ -1,5 +1,9 @@
 #include "BaseTrainingScreen.h"
 
+/*!
+ * \brief Создание меню, в котором у пользователя два выбора: Начать тренировку и завершить тренировку.
+ */
+
 BaseTrainingScreen::BaseTrainingScreen(bool isOpenInProcessTrainingMode,
                                        QWidget* parent): QWidget(parent) {
     this->isOpenInProcessTrainingMode = isOpenInProcessTrainingMode;

@@ -4,6 +4,11 @@
 #define MIN_TRAINING_APP_NUMBER 1
 #define MAX_TRAINING_APP_NUMBER 3
 
+/*!
+ * \brief Всего три тренажера. Номер тренажера (для отображения на экране) присваеиваем переменной.
+ * Также, производим проверку номера. Если он выходит за пределы (1-3), то сообщаем об этом.
+ */
+
 enum class TrainingAppNumber {
     FIRST = MIN_TRAINING_APP_NUMBER,
     SECOND,

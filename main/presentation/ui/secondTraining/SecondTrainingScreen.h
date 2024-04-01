@@ -5,6 +5,10 @@
 #include "main/presentation/ui/baseTrainingScreen/BaseTrainingScreen.h"
 #include "ui_SecondTrainingScreen.h"
 
+/*!
+ * \brief Окно второго тренажера
+ */
+
 class SecondTrainingScreen : public BaseTrainingScreen, public Ui::SecondTrainingScreen {
     Q_OBJECT
 

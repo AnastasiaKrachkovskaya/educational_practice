@@ -12,6 +12,11 @@ public:
     void virtual handleTrainingScreenDestination(const TrainingScreenDestination& dest) = 0;
 };
 
+
+/*!
+ * \class BaseDestination
+ * \brief Осуществляет переход между окнами
+ */
 class BaseDestination{
 protected:
     BaseDestination() {};
@@ -20,7 +25,10 @@ protected:
 public:
     void virtual handleWith(DestinationHandler* handler) const = 0;
 };
-
+/*!
+ * \class InitialScreenDestination
+ * \brief Наследуется от BaseDestination, осуществляет переход на окно с выбором режима
+ */
 class InitialScreenDestination : public BaseDestination {
 public:
     InitialScreenDestination() {};
@@ -28,7 +36,10 @@ public:
         handler->handleInitialScreenDestination(*this);
     }
 };
-
+/*!
+ * \class TrainingScreenDestination
+ * \brief Наследуется от BaseDestination, осуществляет переход на окно с тренажером
+ */
 class TrainingScreenDestination: public BaseDestination {
 private:
     bool isOpenInProcessTrainingMode;

@@ -3,6 +3,10 @@
 
 #include "Destination.h"
 
+/*!
+ * \brief Навигация по приложению
+ */
+
 class AppView{
 public:
     virtual void navigateTo(const BaseDestination& destination) = 0;

@@ -5,6 +5,10 @@
 #include <QVBoxLayout>
 #include <QMenuBar>
 
+/*!
+ * \brief Визуальная часть меню
+ */
+
 class BaseTrainingScreen : public QWidget {
     Q_OBJECT
 

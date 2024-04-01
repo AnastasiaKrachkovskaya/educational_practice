@@ -6,6 +6,10 @@
 #include "main/presentation/presenter/InitialViewPresenter.h"
 #include "main/data/env/AppEnvironment.h"
 
+/*!
+ * \brief Начальное окно с выбором режима
+ */
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class AppWindow;
