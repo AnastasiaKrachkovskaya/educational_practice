@@ -28,6 +28,13 @@ void BaseTrainingScreen::setupUi() {
     this->layout()->setMenuBar(this->menuBar);
 }
 
+void BaseTrainingScreen::showInstructionDialog()
+{
+    this->dialogInstruction = new DialogInstruction(this);
+    this->dialogInstruction->setModal(true);
+    this->dialogInstruction->exec();
+}
+
 void BaseTrainingScreen::setupProcessTrainingUi()
 {
     endTrainingAction->setEnabled(false);

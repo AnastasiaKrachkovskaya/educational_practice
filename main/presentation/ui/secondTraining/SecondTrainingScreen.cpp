@@ -13,3 +13,9 @@ SecondTrainingScreen::~SecondTrainingScreen()
 {
     delete ui;
 }
+
+void SecondTrainingScreen::on_pushButtonInstr2_clicked()
+{
+    showInstructionDialog();
+}
+

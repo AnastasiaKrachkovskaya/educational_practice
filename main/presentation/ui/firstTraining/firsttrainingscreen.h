@@ -15,6 +15,9 @@ class FirstTrainingScreen : public BaseTrainingScreen, public Ui::FirstTrainingS
 public:
     explicit FirstTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent = nullptr);
     ~FirstTrainingScreen();
+private slots:
+    void on_pushButtonInstr1_clicked();
+
 private:
     Ui::FirstTrainingScreen *ui;
 };

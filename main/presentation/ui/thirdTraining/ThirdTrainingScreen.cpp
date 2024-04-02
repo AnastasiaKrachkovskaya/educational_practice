@@ -1,6 +1,7 @@
 #include "ThirdTrainingScreen.h"
 #include "ui_ThirdTrainingScreen.h"
 
+
 ThirdTrainingScreen::ThirdTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent)
     : BaseTrainingScreen(isOpenInProcessTrainingMode, parent)
     , ui(new Ui::ThirdTrainingScreen)
@@ -13,3 +14,9 @@ ThirdTrainingScreen::~ThirdTrainingScreen()
 {
     delete ui;
 }
+
+void ThirdTrainingScreen::on_pushButton_5_clicked()
+{
+    showInstructionDialog();
+}
+

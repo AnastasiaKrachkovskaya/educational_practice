@@ -82,7 +82,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>20</height>
+       <height>10</height>
       </size>
      </property>
     </spacer>
@@ -303,8 +303,21 @@
    </item>
    <item>
     <widget class="QPushButton" name="pushButton_2">
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>16777215</height>
+      </size>
+     </property>
      <property name="text">
       <string>И про меня не забудь</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButtonInstr1">
+     <property name="text">
+      <string>Перед выполнением обязательно прочитайте инструкцию!</string>
      </property>
     </widget>
    </item>

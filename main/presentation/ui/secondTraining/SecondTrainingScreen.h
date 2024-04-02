@@ -15,6 +15,9 @@ class SecondTrainingScreen : public BaseTrainingScreen, public Ui::SecondTrainin
 public:
     explicit SecondTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent = nullptr);
     ~SecondTrainingScreen();
+private slots:
+    void on_pushButtonInstr2_clicked();
+
 private:
     Ui::SecondTrainingScreen *ui;
 };

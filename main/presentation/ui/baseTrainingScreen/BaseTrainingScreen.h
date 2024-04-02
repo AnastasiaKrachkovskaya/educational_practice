@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QMenuBar>
 #include "main/presentation/presenter/ExcerciseViewPresenter.h"
+#include "dialogInstruction.h"
 
 /*!
  * \brief Визуальная часть меню
@@ -18,12 +19,15 @@ public:
     ~BaseTrainingScreen();
 protected:
     void setupUi();
+    void showInstructionDialog();
 private:
     QMenuBar* menuBar;
     QMenu* menuItem;
     QAction* startTrainingAction = new QAction("Начать тренировку");
     QAction* endTrainingAction = new QAction("Завершить тренировку");
     QAction* checkTrainingAction = new QAction("Проверить результат тренировки");
+
+    DialogInstruction* dialogInstruction;
 
     bool isOpenInProcessTrainingMode;
     ExcerciseViewPresenter* presenter;

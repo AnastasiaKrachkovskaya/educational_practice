@@ -15,6 +15,9 @@ class ThirdTrainingScreen : public BaseTrainingScreen, public Ui::ThirdTrainingS
 public:
     explicit ThirdTrainingScreen(bool isOpenInProcessTrainingMode, QWidget *parent = nullptr);
     ~ThirdTrainingScreen();
+private slots:
+    void on_pushButton_5_clicked();
+
 private:
     Ui::ThirdTrainingScreen *ui;
 };

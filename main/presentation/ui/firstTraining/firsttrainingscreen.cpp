@@ -13,3 +13,9 @@ FirstTrainingScreen::~FirstTrainingScreen()
 {
     delete ui;
 }
+
+void FirstTrainingScreen::on_pushButtonInstr1_clicked()
+{
+    showInstructionDialog();
+}
+
