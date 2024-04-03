@@ -2,6 +2,7 @@
 #define TRAININGPROCESSPRESENTER_H
 
 #include <main/models/Actions.h>
+#include <QString>
 #include <list>
 
 using namespace std;
@@ -21,8 +22,14 @@ public:
     ProcessTrainingViewPresenter() {};
     ~ProcessTrainingViewPresenter() {};
 
-    void connectProcessTrainingView(ProcessTrainingView* ProcessTrainingView) {
-        this->ProcessTrainingView = ProcessTrainingView;
+    void connectProcessTrainingView(ProcessTrainingView* processTrainingView) {
+        this->processTrainingView = processTrainingView;
+    }
+
+    void initTraining(QString lastName) {
+        if(processTrainingView) {
+            processTrainingView->startTraining();
+        }
     }
 
     /*!
@@ -33,11 +40,11 @@ public:
         // TODO
     }
 private:
-    ProcessTrainingView* ProcessTrainingView = nullptr;
+    ProcessTrainingView* processTrainingView = nullptr;
 protected:
     void processTraining() {
-        if(ProcessTrainingView) {
-            ProcessTrainingView->startTraining();
+        if(processTrainingView) {
+            processTrainingView->startTraining();
         }
     }
 };

@@ -10,11 +10,11 @@ TRAINING_APPLICATION_NUMBER=2
 
 INCLUDEPATH += $$files("*/", true)
 
-SOURCES += $$files("*.cpp", true)
+SOURCES += $$files("*.cpp", true) \
 
-HEADERS += $$files("*.h", true)
+HEADERS += $$files("*.h", true) \
 
-FORMS += $$files("*.ui", true)
+FORMS += $$files("*.ui", true) \
 
 DEFINES += TRAINING_APPLICATION_NUMBER=$$TRAINING_APPLICATION_NUMBER
 

@@ -11,7 +11,7 @@ BaseTrainingScreen::BaseTrainingScreen(bool isOpenInProcessTrainingMode,
                                        QWidget* parent): QWidget(parent) {
     this->isOpenInProcessTrainingMode = isOpenInProcessTrainingMode;
     this->presenter = new ExcerciseViewPresenter();
-    //this->presenter->connectExcerciseView(this);
+    this->presenter->connectExcerciseView(this);
 }
 
 void BaseTrainingScreen::setupUi() {
@@ -43,6 +43,7 @@ void BaseTrainingScreen::setupProcessTrainingUi()
 
     // привязка с помощью signal-slot события нажатия на экшен в меню
     connect(startTrainingAction, &QAction::triggered, this, &BaseTrainingScreen::onStartTrainingActionTriggered);
+    connect(endTrainingAction, &QAction::triggered, this, &BaseTrainingScreen::onEndTrainingActionTriggered);
 }
 
 void BaseTrainingScreen::onStartTrainingActionTriggered()
@@ -51,15 +52,34 @@ void BaseTrainingScreen::onStartTrainingActionTriggered()
 
 
     if (!enteredLastName.isEmpty()) {
-        presenter->setLastName(enteredLastName);
+        presenter->initTraining(enteredLastName);
     } else {
         qDebug() << "Ввод фамилии отменен";
     }
+}
+
+void BaseTrainingScreen::onEndTrainingActionTriggered()
+{
+    this->dialogFinish = new DialogFinish(this);
+    this->dialogFinish->setModal(true);
+    this->dialogFinish->exec();
 }
 
 void BaseTrainingScreen::setupReplayTrainingUi()
 {
     this->menuItem->addAction(checkTrainingAction);
 }
+
+void BaseTrainingScreen::showError(string error){}
+
+void BaseTrainingScreen::startTraining() {
+    startTrainingAction->setEnabled(false);
+    endTrainingAction->setEnabled(true);
+}
+
+void BaseTrainingScreen::replayAction(BaseAction action)
+{
+}
+
 
 BaseTrainingScreen::~BaseTrainingScreen() { }

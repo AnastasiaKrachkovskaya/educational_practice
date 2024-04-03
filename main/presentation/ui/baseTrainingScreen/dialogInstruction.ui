@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>176</height>
    </rect>
   </property>
   <property name="sizeIncrement">
@@ -29,7 +29,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
+     <y>30</y>
      <width>1291</width>
      <height>110</height>
     </rect>

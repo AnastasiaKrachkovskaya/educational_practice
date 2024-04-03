@@ -10,8 +10,6 @@ class ReplayTrainingView {
 public:
     virtual ~ReplayTrainingView() {};
     virtual void replayAction(BaseAction action) = 0;
-    virtual void showLoading() = 0;
-    virtual void hideLoading() = 0;
     virtual void showError(string error) = 0;
 };
 

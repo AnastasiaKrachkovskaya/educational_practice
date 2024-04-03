@@ -22,16 +22,9 @@ public:
     };
 
     using ProcessTrainingViewPresenter::onAction;
+    using ProcessTrainingViewPresenter::initTraining;
     using ReplayTrainingViewPresenter::startTrainingReplay;
     using ReplayTrainingViewPresenter::setReplaySpeedFactor;
-
-    /*!
-     * \brief Запоминаем введеную фамилию
-     */
-    void setLastName(QString lastName)
-    {
-        this->lastName = lastName;
-    }
 
 private:
     QString lastName;
