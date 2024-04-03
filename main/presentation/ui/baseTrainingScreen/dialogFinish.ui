@@ -64,7 +64,7 @@
     </size>
    </property>
    <property name="text">
-    <string>Чтобы выйти из приложения, нажмите &quot;ОК&quot;</string>
+    <string>Чтобы выйти из приложения, нажмите &quot;ОК&quot;.</string>
    </property>
   </widget>
  </widget>

@@ -1,6 +1,4 @@
 #include "BaseTrainingScreen.h"
-#include <QInputDialog>
-#include <QString>
 
 /*!
  * \brief Создание меню, в котором у пользователя два выбора: Начать тренировку и завершить тренировку
@@ -60,9 +58,15 @@ void BaseTrainingScreen::onStartTrainingActionTriggered()
 
 void BaseTrainingScreen::onEndTrainingActionTriggered()
 {
-    this->dialogFinish = new DialogFinish(this);
-    this->dialogFinish->setModal(true);
-    this->dialogFinish->exec();
+    //this->dialogFinish = new DialogFinish(this);
+    //this->dialogFinish->setModal(true);
+    //this->dialogFinish->exec();
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Завершить тренировку", "Вы уверены, что хотите закончить тренировку?",
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        QApplication::quit(); // Завершаем программу
+    }
 }
 
 void BaseTrainingScreen::setupReplayTrainingUi()

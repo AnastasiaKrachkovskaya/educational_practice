@@ -4,9 +4,13 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QMenuBar>
+#include <QString>
+#include <QInputDialog>
+#include <QMessageBox>
 #include "main/presentation/presenter/ExcerciseViewPresenter.h"
 #include "dialogInstruction.h"
 #include "dialogFinish.h"
+
 
 /*!
  * \brief Визуальная часть меню
@@ -34,7 +38,7 @@ private:
     QAction* checkTrainingAction = new QAction("Проверить результат тренировки");
 
     DialogInstruction* dialogInstruction;
-    DialogFinish* dialogFinish;
+    //DialogFinish* dialogFinish;
 
     bool isOpenInProcessTrainingMode;
     ExcerciseViewPresenter* presenter;
