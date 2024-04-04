@@ -7,6 +7,9 @@ SecondTrainingScreen::SecondTrainingScreen(bool isOpenInProcessTrainingMode, QWi
 {
     ui->setupUi(this);
     BaseTrainingScreen::setupUi();
+
+    //QString objectName =ui->pushButton_3->objectName();
+    //qDebug() << "Object name:" << objectName;
 }
 
 SecondTrainingScreen::~SecondTrainingScreen()

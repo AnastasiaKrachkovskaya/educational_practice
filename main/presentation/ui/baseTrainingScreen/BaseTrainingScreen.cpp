@@ -58,11 +58,8 @@ void BaseTrainingScreen::onStartTrainingActionTriggered()
 
 void BaseTrainingScreen::onEndTrainingActionTriggered()
 {
-    //this->dialogFinish = new DialogFinish(this);
-    //this->dialogFinish->setModal(true);
-    //this->dialogFinish->exec();
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Завершить тренировку", "Вы уверены, что хотите закончить тренировку?",
+    reply = QMessageBox::question(this, "Завершить тренировку", "Вы уверены, что хотите завершить тренировку?",
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
         QApplication::quit(); // Завершаем программу

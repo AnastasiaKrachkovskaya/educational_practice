@@ -38,7 +38,6 @@ private:
     QAction* checkTrainingAction = new QAction("Проверить результат тренировки");
 
     DialogInstruction* dialogInstruction;
-    //DialogFinish* dialogFinish;
 
     bool isOpenInProcessTrainingMode;
     ExcerciseViewPresenter* presenter;
