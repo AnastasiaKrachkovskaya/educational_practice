@@ -5,12 +5,9 @@
 #include <QVBoxLayout>
 #include <QMenuBar>
 #include <QString>
-#include <QInputDialog>
-#include <QMessageBox>
+#include <QApplication>
 #include "main/presentation/presenter/ExcerciseViewPresenter.h"
-#include "dialogInstruction.h"
-#include "dialogFinish.h"
-
+#include "main/presentation/ui/dialogs/qmessageboxdialogsprovider.h"
 
 /*!
  * \brief Визуальная часть меню
@@ -26,18 +23,18 @@ public:
     void showError(string error) override;
     void startTraining() override;
     void replayAction(BaseAction action) override;
+    void closeTrainingView() override;
 
 protected:
     void setupUi();
     void showInstructionDialog();
+    void sendActionToPresenter(BaseAction* action);
 private:
     QMenuBar* menuBar;
     QMenu* menuItem;
     QAction* startTrainingAction = new QAction("Начать тренировку");
     QAction* endTrainingAction = new QAction("Завершить тренировку");
     QAction* checkTrainingAction = new QAction("Проверить результат тренировки");
-
-    DialogInstruction* dialogInstruction;
 
     bool isOpenInProcessTrainingMode;
     ExcerciseViewPresenter* presenter;

@@ -28,9 +28,7 @@ void BaseTrainingScreen::setupUi() {
 
 void BaseTrainingScreen::showInstructionDialog()
 {
-    this->dialogInstruction = new DialogInstruction(this);
-    this->dialogInstruction->setModal(true);
-    this->dialogInstruction->exec();
+    DialogsManager::showInstruction();
 }
 
 void BaseTrainingScreen::setupProcessTrainingUi()
@@ -46,8 +44,7 @@ void BaseTrainingScreen::setupProcessTrainingUi()
 
 void BaseTrainingScreen::onStartTrainingActionTriggered()
 {
-    QString enteredLastName = QInputDialog::getText(this, tr("Введите фамилию"), tr("Фамилия:"));
-
+    QString enteredLastName = DialogsManager::askForLastNameInput();
 
     if (!enteredLastName.isEmpty()) {
         presenter->initTraining(enteredLastName);
@@ -58,11 +55,9 @@ void BaseTrainingScreen::onStartTrainingActionTriggered()
 
 void BaseTrainingScreen::onEndTrainingActionTriggered()
 {
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Завершить тренировку", "Вы уверены, что хотите завершить тренировку?",
-                                  QMessageBox::Yes | QMessageBox::No);
-    if (reply == QMessageBox::Yes) {
-        QApplication::quit(); // Завершаем программу
+    bool reply = DialogsManager::askForEndTrainingConfirmation();
+    if(presenter) {
+        presenter->onTrainingEndConfirmStatusReceived(reply);
     }
 }
 
@@ -80,6 +75,16 @@ void BaseTrainingScreen::startTraining() {
 
 void BaseTrainingScreen::replayAction(BaseAction action)
 {
+}
+
+void BaseTrainingScreen::sendActionToPresenter(BaseAction* action) {
+    if(presenter) {
+        presenter -> onAction(action);
+    }
+}
+
+void BaseTrainingScreen::closeTrainingView() {
+    QApplication::quit();
 }
 
 

@@ -3,6 +3,7 @@
 
 #include <list>
 #include "main/models/Actions.h"
+#include <QDebug>
 
 using namespace std;
 
@@ -14,8 +15,20 @@ using namespace std;
  */
 class ActionsRepository
 {
+private:
+    ActionsRepository() {}
+    ActionsRepository(ActionsRepository& other);
+
+    static ActionsRepository* instance;
+
+    ActionsRepository* appView = nullptr;
 public:
-    ActionsRepository();
+    static ActionsRepository* getInstance() {
+        if(instance == nullptr) {
+            instance = new ActionsRepository();
+        }
+        return instance;
+    }
 
     /*!
      * \brief saveAction метод для сохранения события пользователя в режиме тренажера.

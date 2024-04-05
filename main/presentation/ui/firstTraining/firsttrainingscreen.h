@@ -2,6 +2,7 @@
 #define FIRSTTRAININGSCREEN_H
 
 #include <QWidget>
+#include "main/models/Actions.h"
 #include "main/presentation/ui/baseTrainingScreen/BaseTrainingScreen.h"
 #include "ui_FirstTrainingScreen.h"
 
@@ -17,6 +18,10 @@ public:
     ~FirstTrainingScreen();
 private slots:
     void on_pushButtonInstr1_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_3_clicked();
 
 private:
     Ui::FirstTrainingScreen *ui;

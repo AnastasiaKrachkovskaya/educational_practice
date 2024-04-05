@@ -23,6 +23,8 @@ public:
 
     using ProcessTrainingViewPresenter::onAction;
     using ProcessTrainingViewPresenter::initTraining;
+    using ProcessTrainingViewPresenter::onTrainingEndConfirmStatusReceived;
+
     using ReplayTrainingViewPresenter::startTrainingReplay;
     using ReplayTrainingViewPresenter::setReplaySpeedFactor;
 
