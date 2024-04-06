@@ -78,7 +78,7 @@ protected:
  */
 class ComboBoxOptionSelectedAction: public BaseAction {
 public:
-    ComboBoxOptionSelectedAction(QString actedElementId): BaseAction(actedElementId) {}
+    ComboBoxOptionSelectedAction(QString actedElementId, QString selectedOption): BaseAction(actedElementId) {}
     ~ComboBoxOptionSelectedAction() {}
 protected:
     QString actionType = "ComboBoxOptionSelectedAction";
@@ -92,7 +92,7 @@ protected:
 //TODO подумать мб тут как-то надо по-хитрому еще передавать id столбца и измененное значение
 class TableChangedAction: public BaseAction {
 public:
-    TableChangedAction(QString actedElementId): BaseAction(actedElementId) {}
+    TableChangedAction(QString actedElementId, QString inputValue, int row, int column): BaseAction(actedElementId) {}
     ~TableChangedAction() {}
 protected:
     QString actionType = "TableChangedAction";

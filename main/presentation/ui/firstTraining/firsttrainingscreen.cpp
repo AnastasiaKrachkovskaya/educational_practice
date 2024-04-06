@@ -20,18 +20,50 @@ void FirstTrainingScreen::on_pushButtonInstr1_clicked()
 }
 
 
-void FirstTrainingScreen::on_pushButton_clicked()
+void FirstTrainingScreen::on_pushButton_1_1_clicked()
 {
     sendActionToPresenter(
-        new PushButtonClickAction(ui->pushButton->objectName())
+        new PushButtonClickAction(ui->pushButton_1_1->objectName())
     );
 }
 
 
-void FirstTrainingScreen::on_pushButton_3_clicked()
+void FirstTrainingScreen::on_pushButton_1_2_clicked()
 {
     sendActionToPresenter(
-        new PushButtonClickAction(ui->pushButton_3->objectName())
+        new PushButtonClickAction(ui->pushButton_1_2->objectName())
     );
+}
+
+
+void FirstTrainingScreen::on_pushButton_1_3_clicked()
+{
+    sendActionToPresenter(
+        new PushButtonClickAction(ui->pushButton_1_3->objectName())
+        );
+}
+
+
+void FirstTrainingScreen::on_lineEdit_1_editingFinished()
+{
+    sendActionToPresenter(
+        new TextInputChanged(ui->lineEdit_1->objectName(), ui->lineEdit_1->text())
+        );
+}
+
+
+void FirstTrainingScreen::on_comboBox_1_activated(int index)
+{
+    sendActionToPresenter(
+        new ComboBoxOptionSelectedAction(ui->comboBox_1->objectName(), ui->comboBox_1->currentText())
+        );
+}
+
+
+void FirstTrainingScreen::on_tableWidget_cellChanged(int row, int column)
+{
+    sendActionToPresenter(
+        new TableChangedAction(ui->tableWidget->objectName(), ui->tableWidget->item(row, column)->text(), row, column)
+        );
 }
 
