@@ -6,7 +6,7 @@ CONFIG += c++17
 
 # Переменная окружения - номер тренажера, для которого сконфигурирован проект
 # при изменении значения выполнять rebuild проекта (иначе не подтянется актуальное значение)
-TRAINING_APPLICATION_NUMBER=1
+TRAINING_APPLICATION_NUMBER=3
 
 INCLUDEPATH += $$files("*/", true)
 

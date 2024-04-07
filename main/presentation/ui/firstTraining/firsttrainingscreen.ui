@@ -111,28 +111,28 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="radioButton_1_1">
          <property name="text">
           <string>1 курс</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="radioButton_1_2">
          <property name="text">
           <string>2 курс</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_3">
+        <widget class="QRadioButton" name="radioButton_1_3">
          <property name="text">
           <string>3 курс</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_4">
+        <widget class="QRadioButton" name="radioButton_1_4">
          <property name="text">
           <string>4 курс</string>
          </property>
@@ -251,7 +251,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget">
+      <widget class="QTableWidget" name="tableWidget_1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>

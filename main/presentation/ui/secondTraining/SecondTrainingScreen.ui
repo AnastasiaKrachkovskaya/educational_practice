@@ -36,7 +36,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget">
+      <widget class="QTableWidget" name="tableWidget_2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>
@@ -119,28 +119,28 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="radioButton_2_1">
          <property name="text">
           <string>переменная, в которой хранится адрес памяти объекта.</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="radioButton_2_2">
          <property name="text">
           <string>тип данных.</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_3">
+        <widget class="QRadioButton" name="radioButton_2_3">
          <property name="text">
           <string>переменная, в которой хранится объект.</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_4">
+        <widget class="QRadioButton" name="radioButton_2_4">
          <property name="text">
           <string>нет правильного ответа.</string>
          </property>
@@ -171,7 +171,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="lineEdit_2">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -208,7 +208,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="comboBox_2">
        <item>
         <property name="text">
          <string>char</string>
@@ -247,7 +247,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="pushButton_2_1">
      <property name="maximumSize">
       <size>
        <width>200</width>
@@ -260,7 +260,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pushButton_2_2">
      <property name="maximumSize">
       <size>
        <width>200</width>

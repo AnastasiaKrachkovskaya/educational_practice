@@ -6,8 +6,6 @@
 #include "main/presentation/ui/baseTrainingScreen/BaseTrainingScreen.h"
 #include "ui_FirstTrainingScreen.h"
 
-#include <QString>
-
 /*!
  * \brief Окно первого тренажера
  */
@@ -31,7 +29,15 @@ private slots:
 
     void on_comboBox_1_activated(int index);
 
-    void on_tableWidget_cellChanged(int row, int column);
+    void on_tableWidget_1_cellChanged(int row, int column);
+
+    void on_radioButton_1_1_clicked();
+
+    void on_radioButton_1_2_clicked();
+
+    void on_radioButton_1_3_clicked();
+
+    void on_radioButton_1_4_clicked();
 
 private:
     Ui::FirstTrainingScreen *ui;

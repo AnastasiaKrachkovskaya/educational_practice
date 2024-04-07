@@ -60,10 +60,42 @@ void FirstTrainingScreen::on_comboBox_1_activated(int index)
 }
 
 
-void FirstTrainingScreen::on_tableWidget_cellChanged(int row, int column)
+void FirstTrainingScreen::on_tableWidget_1_cellChanged(int row, int column)
 {
     sendActionToPresenter(
-        new TableChangedAction(ui->tableWidget->objectName(), ui->tableWidget->item(row, column)->text(), row, column)
+        new TableChangedAction(ui->tableWidget_1->objectName(), ui->tableWidget_1->item(row, column)->text(), row, column)
+        );
+}
+
+
+void FirstTrainingScreen::on_radioButton_1_1_clicked()
+{
+    sendActionToPresenter(
+        new RadioButtonSelectAction(ui->radioButton_1_1->objectName())
+        );
+}
+
+
+void FirstTrainingScreen::on_radioButton_1_2_clicked()
+{
+    sendActionToPresenter(
+        new RadioButtonSelectAction(ui->radioButton_1_2->objectName())
+        );
+}
+
+
+void FirstTrainingScreen::on_radioButton_1_3_clicked()
+{
+    sendActionToPresenter(
+        new RadioButtonSelectAction(ui->radioButton_1_3->objectName())
+        );
+}
+
+
+void FirstTrainingScreen::on_radioButton_1_4_clicked()
+{
+    sendActionToPresenter(
+        new RadioButtonSelectAction(ui->radioButton_1_4->objectName())
         );
 }
 

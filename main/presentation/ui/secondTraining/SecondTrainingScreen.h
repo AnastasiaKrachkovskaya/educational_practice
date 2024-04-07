@@ -18,6 +18,24 @@ public:
 private slots:
     void on_pushButtonInstr2_clicked();
 
+    void on_pushButton_2_1_clicked();
+
+    void on_pushButton_2_2_clicked();
+
+    void on_lineEdit_2_editingFinished();
+
+    void on_comboBox_2_activated(int index);
+
+    void on_tableWidget_2_cellChanged(int row, int column);
+
+    void on_radioButton_2_1_clicked();
+
+    void on_radioButton_2_2_clicked();
+
+    void on_radioButton_2_3_clicked();
+
+    void on_radioButton_2_4_clicked();
+
 private:
     Ui::SecondTrainingScreen *ui;
 };
