@@ -5,6 +5,10 @@
 #include "main/presentation/navigation/Destination.h"
 #include "main/data/env/AppEnvironment.h"
 
+/*!
+ * \brief The InitialViewPresenter class
+ * Презентер InitialView
+ */
 class InitialViewPresenter {
 public:
     InitialViewPresenter() {};

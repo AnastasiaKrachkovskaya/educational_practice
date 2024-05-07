@@ -1,4 +1,4 @@
-#include "qmessageboxdialogsprovider.h"
+#include "DialogsManager.h"
 
 DialogsManager::DialogsManager() {}
 
@@ -18,7 +18,7 @@ void DialogsManager::showInstruction() {
 }
 
 
-bool DialogsManager::askForEndTrainingConfirmation() {
+bool DialogsManager::requestEndTrainingConfirm() {
     QMessageBox* confirmEndTrainingDialog = new QMessageBox(
         QMessageBox::Question, "Завершить тренировку",
             "Вы уверены, что хотите завершить тренировку?",
@@ -31,8 +31,27 @@ bool DialogsManager::askForEndTrainingConfirmation() {
     return reply;
 }
 
-QString DialogsManager::askForLastNameInput() {
+QString DialogsManager::requestLastNameInput() {
     QString enteredLastName = QInputDialog::getText(nullptr, "Введите фамилию", "Фамилия:");
 
     return enteredLastName;
+}
+
+QString DialogsManager::requestReplayTrainingFilePath() {
+    QString filePath = QFileDialog::getOpenFileName(nullptr,
+                                                    "Выберите файл записи тренировки",
+                                                    QDir::homePath(),
+                                                    "Все файлы (*.*);;XML файлы (*.xml)");
+
+    return filePath;
+}
+
+double DialogsManager::requestReplayTrainingSpeedFactor() {
+    ReplayTrainingSpeedFactorSelectionDialog dialog;
+    if (dialog.exec() == QDialog::Accepted) {
+        double selectedSpeedFactor = dialog.getSelectedReplayTrainingSpeedFactor();
+        return selectedSpeedFactor;
+    } else {
+        return NAN;
+    }
 }

@@ -5,6 +5,15 @@
 
 using namespace std;
 
+enum class ActionType {
+    PUSH_BUTTON_CLICK,
+    RADIO_BUTTON_SELECT,
+    TEXT_INPUT_CHANGED,
+    COMBO_BOX_EXPANDED,
+    COMBO_BOX_OPTION_SELECTED,
+    TABLE_CHANGED,
+};
+
 /*!
  * \class BaseAction
  * \brief Базовый класс всех событий пользователя (нажатий и т.д.)
@@ -20,10 +29,9 @@ public:
     virtual ~BaseAction() {}
 
     QString getActedElementId() { return actedElementId; }
-    QString getActionType() { return actionType; }
+    virtual ActionType getActionType() = 0;
 protected:
     QString actedElementId;
-    QString actionType;
 };
 
 /*!
@@ -33,8 +41,8 @@ class PushButtonClickAction: public BaseAction {
 public:
     PushButtonClickAction(QString actedElementId): BaseAction(actedElementId) {}
     ~PushButtonClickAction() {}
-protected:
-    QString actionType = "PushButtonClickAction";
+
+    ActionType getActionType() override { return ActionType::PUSH_BUTTON_CLICK; }
 };
 
 /*!
@@ -44,8 +52,8 @@ class RadioButtonSelectAction: public BaseAction {
 public:
     RadioButtonSelectAction(QString actedElementId): BaseAction(actedElementId) {}
     ~RadioButtonSelectAction() {}
-protected:
-    QString actionType = "RadioButtonSelectAction";
+
+    ActionType getActionType() override { return ActionType::RADIO_BUTTON_SELECT; }
 };
 
 /*!
@@ -53,10 +61,15 @@ protected:
  */
 class TextInputChanged: public BaseAction {
 public:
-    TextInputChanged(QString actedElementId, QString inputValue): BaseAction(actedElementId) {}
+    TextInputChanged(QString actedElementId, QString inputValue): BaseAction(actedElementId) {
+        this->inputValue = inputValue;
+    }
     ~TextInputChanged() {}
-protected:
-    QString actionType = "TextInputChanged";
+
+    ActionType getActionType() override { return ActionType::TEXT_INPUT_CHANGED; }
+    QString getInputValue() { return this->inputValue; }
+private:
+    QString inputValue;
 };
 
 
@@ -69,8 +82,8 @@ class ComboBoxExpandedAction: public BaseAction {
 public:
     ComboBoxExpandedAction(QString actedElementId): BaseAction(actedElementId) {}
     ~ComboBoxExpandedAction() {}
-protected:
-    QString actionType = "ComboBoxExpandedAction";
+
+    ActionType getActionType() override { return ActionType::COMBO_BOX_EXPANDED; }
 };
 
 /*!
@@ -78,10 +91,15 @@ protected:
  */
 class ComboBoxOptionSelectedAction: public BaseAction {
 public:
-    ComboBoxOptionSelectedAction(QString actedElementId, QString selectedOption): BaseAction(actedElementId) {}
-    ~ComboBoxOptionSelectedAction() {}
-protected:
-    QString actionType = "ComboBoxOptionSelectedAction";
+    ComboBoxOptionSelectedAction(QString actedElementId, QString selectedOption): BaseAction(actedElementId) {
+        this->selectedOption = selectedOption;
+    }
+
+    ActionType getActionType() override { return ActionType::COMBO_BOX_OPTION_SELECTED; }
+
+    QString getSelectedOption() { return this->selectedOption; }
+private:
+    QString selectedOption;
 };
 
 
@@ -92,10 +110,22 @@ protected:
 //TODO подумать мб тут как-то надо по-хитрому еще передавать id столбца и измененное значение
 class TableChangedAction: public BaseAction {
 public:
-    TableChangedAction(QString actedElementId, QString inputValue, int row, int column): BaseAction(actedElementId) {}
+    TableChangedAction(QString actedElementId, QString inputValue, int row, int column): BaseAction(actedElementId) {
+        this->inputValue = inputValue;
+        this->row = row;
+        this->column = column;
+    }
     ~TableChangedAction() {}
-protected:
-    QString actionType = "TableChangedAction";
+
+    QString getInputValue() { return this->inputValue; }
+    int getRow() { return this->row; }
+    int getColumn() { return this->column; }
+
+    ActionType getActionType() override { return ActionType::TABLE_CHANGED; }
+private:
+    QString inputValue;
+    int row;
+    int column;
 };
 
 

@@ -29,7 +29,9 @@ public:
     }
 
     void initTraining(QString lastName) {
-        if(processTrainingView) {
+        if(processTrainingView && actionsRepository) {
+            this->lastName = lastName;
+            actionsRepository->startTrainingTimer();
             processTrainingView->startTraining();
         }
     }
@@ -39,7 +41,7 @@ public:
             return;
         }
 
-        actionsRepository ->uploadActionsDataToFile();
+        actionsRepository ->uploadActionsDataToFile(this->lastName.toStdString());
         processTrainingView -> closeTrainingView();
     }
 
@@ -47,7 +49,7 @@ public:
      * \brief Обработать действие в тренировке
      * \param action
      */
-    void onAction(BaseAction* action) {
+    virtual void onAction(BaseAction* action) {
         if(actionsRepository) {
             actionsRepository->saveAction(action);
         }
@@ -55,12 +57,7 @@ public:
 private:
     ProcessTrainingView* processTrainingView = nullptr;
     ActionsRepository* actionsRepository = ActionsRepository::getInstance();
-protected:
-    void processTraining() {
-        if(processTrainingView) {
-            processTrainingView->startTraining();
-        }
-    }
+    QString lastName = "";
 };
 
 #endif // TRAININGPROCESSPRESENTER_H

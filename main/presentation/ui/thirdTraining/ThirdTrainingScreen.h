@@ -40,6 +40,8 @@ private slots:
 
     void on_radioButton_3_4_clicked();
 
+    void on_comboBox_3_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::ThirdTrainingScreen *ui;
 };

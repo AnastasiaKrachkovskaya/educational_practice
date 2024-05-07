@@ -1,15 +1,20 @@
 #ifndef ReplayTrainingViewPresenter_H
 #define ReplayTrainingViewPresenter_H
 
-#include <main/models/Actions.h>
+#include "main/models/Actions.h"
 #include <list>
+#include "main/data/repository/ActionsRepository.h"
+#include <QElapsedTimer>
+#include <QFuture>
+#include <QtConcurrent/QtConcurrent>
+
 
 using namespace std;
 
 class ReplayTrainingView {
 public:
     virtual ~ReplayTrainingView() {};
-    virtual void replayAction(BaseAction action) = 0;
+    virtual void replayAction(BaseAction* action) = 0;
     virtual void showError(string error) = 0;
 };
 
@@ -26,40 +31,46 @@ public:
     }
 
     /*!
-     * \brief Метод установки скорости воспроизведения.
-     * \param replaySpeedFactor
-     */
-    void setReplaySpeedFactor(int replaySpeedFactor) {
-        this->replaySpeedFactor = replaySpeedFactor;
-    }
-
-    /*!
      * \brief Воспроизвести тренировку из файла
      * \param filename
      */
-    void startTrainingReplay(string filename) {
-        //TODO показывать на вью загрузку и дергать репозиторий чтобы он загрузил данные из файла
-        // лучше это делать отдельным потоком и не забыть обработать исключения, в случае которых показывать ошибку
+    void startTrainingReplay(string filePath, double replaySpeedFactor) {
+        try {
+            isReplayTrainingInProcess = true;
+            replayTrainingFuture= QtConcurrent::run([this, filePath, replaySpeedFactor]() {
+                list<pair<BaseAction*, int>> actions = this->actionsRepository->loadActionsDataFromFile(filePath);\
+
+                if(actions.empty()) return;
+
+                qDebug() << "Starting replaying...";
+
+                qDebug() << "Replay speed factor = " + to_string(replaySpeedFactor);
+                int previousActionEllapsedTime = 0;
+                for(auto actionToTime: actions) {
+                    qDebug() << "Initial time = " + to_string(actionToTime.second);
+
+                    int timeDifference = actionToTime.second - previousActionEllapsedTime;
+                    int delayMillis = timeDifference / replaySpeedFactor;
+                    previousActionEllapsedTime = actionToTime.second;
+
+                    qDebug() << "Replaying action, delay = " + to_string(delayMillis);
+
+                    QThread::currentThread()->msleep(delayMillis);
+                    this->replayTrainingView->replayAction(actionToTime.first);
+                }
+            });
+        } catch(...) {
+            qDebug() << "Error happened";
+        }
+        isReplayTrainingInProcess = false;
     }
+protected:
+    bool isReplayTrainingInProcess = false;
+    QFuture<void> replayTrainingFuture;
+
 private:
     ReplayTrainingView* replayTrainingView = nullptr;
-
-protected:
-    int replaySpeedFactor = 1;
-
-    /*!
-     * \brief Воспроизвести тренировку из списка действий.
-     * \param actions
-     */
-    void startReplaying(list<BaseAction> actions) {
-        // TODO: воспроизведение в отдельном потоке и так же вызывать какой-нибудь delay для того чтобы
-        // было время между действиями
-        for(BaseAction action: actions) {
-            if(replayTrainingView) {
-                replayTrainingView->replayAction(action);
-            }
-        }
-    }
+    ActionsRepository* actionsRepository = ActionsRepository::getInstance();
 };
 
 #endif // ReplayTrainingViewPresenter_H

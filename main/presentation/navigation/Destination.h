@@ -6,6 +6,9 @@
 class InitialScreenDestination;
 class TrainingScreenDestination;
 
+/*!
+ * \brief The DestinationHandler class
+ */
 class DestinationHandler {
 public:
     void virtual handleInitialScreenDestination(const InitialScreenDestination& dest) = 0;

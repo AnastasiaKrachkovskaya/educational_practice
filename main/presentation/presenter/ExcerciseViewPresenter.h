@@ -22,12 +22,21 @@ public:
     };
 
     using ProcessTrainingViewPresenter::onAction;
+
+    void onAction(BaseAction* action) override {
+        if(this->isReplayTrainingInProcess) return;
+
+        ProcessTrainingViewPresenter::onAction(action);
+    }
+
+    void onAppLeft() {
+        qDebug() << "onAppLeft";
+    }
+
     using ProcessTrainingViewPresenter::initTraining;
     using ProcessTrainingViewPresenter::onTrainingEndConfirmStatusReceived;
 
     using ReplayTrainingViewPresenter::startTrainingReplay;
-    using ReplayTrainingViewPresenter::setReplaySpeedFactor;
-
 private:
     QString lastName;
 };

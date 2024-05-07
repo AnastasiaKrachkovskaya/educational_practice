@@ -93,4 +93,3 @@ void SecondTrainingScreen::on_radioButton_2_4_clicked()
         );
 }
 
-

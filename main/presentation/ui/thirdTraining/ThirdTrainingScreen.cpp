@@ -108,3 +108,11 @@ void ThirdTrainingScreen::on_radioButton_3_4_clicked()
 }
 
 
+
+void ThirdTrainingScreen::on_comboBox_3_customContextMenuRequested(const QPoint &pos)
+{
+    sendActionToPresenter(
+        new ComboBoxExpandedAction(ui->comboBox_3->objectName())
+        );
+}
+

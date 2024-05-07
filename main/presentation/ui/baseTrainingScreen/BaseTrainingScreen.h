@@ -6,13 +6,18 @@
 #include <QMenuBar>
 #include <QString>
 #include <QApplication>
+#include <QRadioButton>
+#include <QLineEdit>
+#include <QComboBox>
+#include <QTableWidget>
+#include <QStringLiteral>
 #include "main/presentation/presenter/ExcerciseViewPresenter.h"
-#include "main/presentation/ui/dialogs/qmessageboxdialogsprovider.h"
+#include "main/presentation/ui/dialogs/DialogsManager.h"
+#include "main/models/Actions.h"
 
 /*!
  * \brief Визуальная часть меню
  */
-
 class BaseTrainingScreen : public QWidget, public ExcerciseView {
     Q_OBJECT
 
@@ -22,7 +27,7 @@ public:
 
     void showError(string error) override;
     void startTraining() override;
-    void replayAction(BaseAction action) override;
+    void replayAction(BaseAction* action) override;
     void closeTrainingView() override;
 
 protected:
@@ -44,6 +49,10 @@ private:
 private slots:
     void onStartTrainingActionTriggered();
     void onEndTrainingActionTriggered();
+    void onReplayTrainingActionTriggered();
+    void replayActionSlot(BaseAction* action);
+signals:
+    void replayActionSignal(BaseAction* action);
 };
 
 

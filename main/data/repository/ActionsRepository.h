@@ -2,8 +2,13 @@
 #define ACTIONSREPOSITORY_H
 
 #include <list>
-#include "main/models/Actions.h"
 #include <QDebug>
+#include <QException>
+#include "main/models/Actions.h"
+#include "main/data/XMLParser/ActionsXMLParser.h"
+#include <QApplication>
+#include <QElapsedTimer>
+#include "main/data/env/AppEnvironment.h"
 
 using namespace std;
 
@@ -15,13 +20,6 @@ using namespace std;
  */
 class ActionsRepository
 {
-private:
-    ActionsRepository() {}
-    ActionsRepository(ActionsRepository& other);
-
-    static ActionsRepository* instance;
-
-    ActionsRepository* appView = nullptr;
 public:
     static ActionsRepository* getInstance() {
         if(instance == nullptr) {
@@ -39,20 +37,35 @@ public:
 
     /*!
      * \brief uploadActionsDataToFile метод для выгрузки всех сохраненных событий из RAM
-     * в файл в формате XML.
+     * в файл в формате XML.ввв
+     * \throw QException при ошибке
      */
-    void uploadActionsDataToFile();
+    void uploadActionsDataToFile(string userLastName);
+
+    void startTrainingTimer();
 
     /*!
      * \brief loadActionsDataFromFile метод для загрузки всех событий из файла мз формата XML
-     * TODO: прокидывать имя файла и добавить возвращаемый тип
+     * \throw QException при ошибке
      */
-    list<BaseAction> loadActionsDataFromFile();
+    list<pair<BaseAction*, int>> loadActionsDataFromFile(string filePath);
 private:
+    ActionsRepository() {}
+    ActionsRepository(ActionsRepository& other);
+
+    static ActionsRepository* instance;
+
+    ActionsRepository* appView = nullptr;
+
+    QElapsedTimer* timer = nullptr;
     /*!
      * \brief actions список событий, RAM хранилище
      */
-    list<BaseAction> actions = {};
+    list<pair<BaseAction*, int>> actions = {};
+
+    ActionsXMLParser* actionsXmlParser = new ActionsXMLParser();
+
+    QString getTrainingReplaysDirPath();
 };
 
 #endif // ACTIONSREPOSITORY_H

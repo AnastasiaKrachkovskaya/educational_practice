@@ -12,6 +12,11 @@ public:
     virtual void navigateTo(const BaseDestination& destination) = 0;
 };
 
+/*!
+ * \brief The AppNavigator class
+ * Навигатор приложения
+ * initialScreen -> [NUMBER]TrainingScreen
+ */
 class AppNavigator {
 private:
     AppNavigator() {}
