@@ -12,7 +12,6 @@ void ActionsRepository::saveAction(BaseAction* action)
 
         actionToTime.second = this->timer->elapsed();
 
-
         if(action->getActionType() == ActionType::COMBO_BOX_OPTION_SELECTED) {
             ComboBoxExpandedAction* comboBoxExpandedAction = new ComboBoxExpandedAction(action->getActedElementId());
 
@@ -20,8 +19,8 @@ void ActionsRepository::saveAction(BaseAction* action)
             if(this->actions.size() <= 1) {
                 comboBoxExpandedActionTime = std::min(actionToTime.second / 2, 1000);
             } else {
-                int prevActionTime = this->actions.end()->second;
-                comboBoxExpandedActionTime = std::min((actionToTime.second + prevActionTime) / 2, actionToTime.second - 1000);
+                int prevActionTime = this->actions.back().second;
+                comboBoxExpandedActionTime = std::max((actionToTime.second + prevActionTime) / 2, actionToTime.second - 1000);
             }
 
             pair<BaseAction*, int> comboBoxActionToTime;
@@ -47,15 +46,15 @@ void ActionsRepository::uploadActionsDataToFile(string userLastName)
 
     string trainingAppNumberAsString;
     switch(AppEnvironment::trainingAppNumber) {
-        case TrainingAppNumber::FIRST:
-            trainingAppNumberAsString = "1";
-            break;
-        case TrainingAppNumber::SECOND:
-            trainingAppNumberAsString = "2";
-            break;
-        case TrainingAppNumber::THIRD:
-            trainingAppNumberAsString = "3";
-            break;
+    case TrainingAppNumber::FIRST:
+        trainingAppNumberAsString = "1";
+        break;
+    case TrainingAppNumber::SECOND:
+        trainingAppNumberAsString = "2";
+        break;
+    case TrainingAppNumber::THIRD:
+        trainingAppNumberAsString = "3";
+        break;
     }
 
     // example: /Krachkovskaya-training_1.xml
